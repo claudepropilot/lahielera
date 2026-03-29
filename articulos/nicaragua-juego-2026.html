@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ortega Murillo, Marlett Pasos y Chamorro Rubiales · La Hielera</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Dela+Gothic+One&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Special+Elite&display=swap" rel="stylesheet">
+  <style>
+    :root{--navy:#1a2354;--red:#c0282d;--cream:#f0e6d3;--dark-cream:#e0d4be;}
+    *{box-sizing:border-box;}
+    body{margin:0;background:var(--cream);color:var(--navy);font-family:'Libre Baskerville',serif;line-height:1.6;}
+    .grain{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;mix-blend-mode:overlay;opacity:.08;z-index:9999;}
+    h1,h2,h3,h4,h5{margin:0;padding:0;letter-spacing:0.08em;text-transform:uppercase;font-family:'Dela Gothic One',sans-serif;}
+    p{margin:.75rem 0;font-size:1rem;text-align:justify;}
+    /* Navigation */
+    .nav{position:sticky;top:0;background:var(--navy);border-bottom:3px solid var(--red);padding:0.5rem 1rem;display:flex;justify-content:space-between;align-items:center;z-index:50;}
+    .nav a{color:var(--cream);text-decoration:none;font-family:'Archivo Black',sans-serif;font-size:0.95rem;}
+    .nav .back{font-family:'Special Elite',monospace;text-transform:uppercase;letter-spacing:0.12em;}
+    /* Masthead */
+    .masthead{background:var(--red);clip-path:polygon(0 0,100% 0,100% 78%,0 100%);padding:3.5rem 1rem;text-align:center;color:var(--cream);}
+    .masthead .logo{font-family:'Dela Gothic One',sans-serif;font-size:clamp(2rem,6vw,4rem);text-shadow:6px 6px 0 rgba(0,0,0,.35);}
+    .masthead .tagline{font-family:'Special Elite',monospace;font-size:1rem;letter-spacing:0.14em;text-transform:uppercase;margin-top:0.5rem;}
+    /* Ticker */
+    .ticker{background:var(--navy);color:var(--cream);text-align:center;padding:0.9rem 1rem;font-family:'Special Elite',monospace;text-transform:uppercase;letter-spacing:0.13em;}
+    /* Article wrapper */
+    .article{max-width:900px;margin:0 auto;padding:1rem;}
+    /* Main headline */
+    .main-headline{padding:1.5rem 0 0.5rem;text-align:center;}
+    .main-headline h1{font-size:clamp(1.4rem,4vw,1.9rem);line-height:1.12;margin-bottom:0.9rem;}
+    /* Two-column intro */
+    .two-col{display:grid;grid-template-columns:2fr 1fr;gap:1.2rem;margin:1rem 0 1.5rem;}
+    .col-text{font-size:1rem;line-height:1.6;text-align:justify;color:var(--navy);}
+    .dropcap{font-family:'Dela Gothic One',sans-serif;color:var(--red);float:left;font-size:64px;line-height:0.8;margin-right:0.15rem;margin-top:0.1rem;}
+    .col-highlight{background:var(--navy);color:var(--cream);padding:1.1rem 1.2rem;font-size:0.95rem;line-height:1.45;border-left:6px solid var(--red);}
+    /* Rule */
+    .rule-red{border:none;border-top:5px solid var(--red);margin:0;}
+    /* Secondary intro block */
+    .secondary{display:grid;grid-template-columns:1fr;}
+    .sec-text{padding:1.2rem 0;}
+    .sec-text h2{font-size:1.3rem;line-height:1.12;margin-bottom:0.6rem;color:var(--red);}
+    .sec-text p{font-size:0.9rem;line-height:1.55;color:var(--navy);}
+    /* Bottom bar */
+    .bottom-bar{display:grid;grid-template-columns:1fr 1fr;border-top:4px solid var(--red);background:var(--navy);}
+    .bot-left{padding:1rem 1rem 1rem 1.2rem;border-right:2px solid rgba(240,230,211,.15);}
+    .bot-left h3{font-family:'Archivo Black',sans-serif;font-size:0.85rem;font-weight:900;line-height:1.35;margin-bottom:4px;color:var(--cream);text-transform:uppercase;letter-spacing:.5px;}
+    .bot-left .tag{font-family:'Special Elite',monospace;font-size:0.65rem;color:var(--red);letter-spacing:2px;text-transform:uppercase;}
+    .bot-right{padding:1rem 1.2rem 1rem 1rem;display:flex;flex-direction:column;justify-content:center;}
+    .bot-right .quote{font-family:'Libre Baskerville',serif;font-style:italic;font-size:0.9rem;line-height:1.35;color:var(--cream);}
+    .bot-right .author{font-family:'Special Elite',monospace;font-size:0.65rem;text-align:right;margin-top:6px;color:var(--red);}
+    /* Page break */
+    .page-break{height:24px;background:var(--navy);margin:2rem 0;}
+    /* Section header */
+    .section-header{background:var(--red);color:var(--cream);padding:0.75rem 0.9rem;font-family:'Archivo Black',sans-serif;font-size:0.7rem;font-weight:900;text-transform:uppercase;letter-spacing:3px;}
+    /* Section inner */
+    .section-inner{padding:1.5rem 0;}
+    .section-inner h2{font-size:1.6rem;line-height:1.1;margin-bottom:4px;color:var(--navy);}
+    .subtitle{font-family:'Special Elite',monospace;font-size:0.75rem;color:var(--red);margin-bottom:1rem;text-transform:uppercase;letter-spacing:1px;display:block;}
+    .section-inner p{font-size:0.875rem;line-height:1.65;margin-bottom:0.75rem;text-align:justify;color:var(--navy);}
+    .cite{font-family:'Special Elite',monospace;font-size:0.65rem;color:var(--navy);opacity:.4;margin-top:-4px;margin-bottom:1rem;}
+    /* Highlight boxes */
+    .highlight-box{background:var(--red);color:var(--cream);border-left:8px solid var(--navy);padding:1rem 1.1rem;margin:1.1rem 0;font-size:0.875rem;line-height:1.6;}
+    .highlight-box strong{font-weight:700;}
+    .teal-box,.purple-box,.pink-box{background:var(--navy);color:var(--cream);border-left:8px solid var(--red);padding:1rem 1.1rem;margin:1.1rem 0;font-size:0.875rem;line-height:1.6;}
+    .teal-box strong,.purple-box strong,.pink-box strong{color:var(--red);font-weight:700;}
+    .amber-box{background:var(--dark-cream);color:var(--navy);border-left:8px solid var(--red);padding:1rem 1.1rem;margin:1.1rem 0;font-size:0.875rem;line-height:1.6;}
+    .amber-box strong{color:var(--red);font-weight:700;}
+    /* Node grid */
+    .node-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.9rem;margin:1.1rem 0;}
+    .node-card{padding:1rem 1.1rem;font-size:0.8rem;line-height:1.5;}
+    .node-card h4{font-family:'Archivo Black',sans-serif;font-size:0.75rem;font-weight:900;margin-bottom:6px;text-transform:uppercase;letter-spacing:.5px;}
+    .node-card p{font-size:0.75rem;text-align:left;margin-bottom:4px;}
+    .node-cite{font-family:'Special Elite',monospace;font-size:0.6rem;margin-top:8px;opacity:.5;display:block;}
+    /* Node card colour variants */
+    .coral-card{background:var(--dark-cream);border-left:5px solid var(--red);}
+    .coral-card h4{color:var(--red);}
+    .coral-card p,.coral-card .node-cite{color:var(--navy);}
+    .purple-card{background:var(--navy);border-left:5px solid var(--red);color:var(--cream);}
+    .purple-card h4{color:var(--red);}
+    .purple-card p,.purple-card .node-cite{color:var(--cream);}
+    .red-card{background:var(--red);border-left:5px solid var(--navy);color:var(--cream);}
+    .red-card h4,.red-card p,.red-card .node-cite{color:var(--cream);}
+    .teal-card{background:var(--navy);border-left:5px solid var(--cream);color:var(--cream);}
+    .teal-card h4,.teal-card p,.teal-card .node-cite{color:var(--cream);}
+    .amber-card{background:var(--dark-cream);border-left:5px solid var(--navy);}
+    .amber-card h4{color:var(--navy);}
+    .amber-card p,.amber-card .node-cite{color:var(--navy);}
+    .pink-card{background:var(--red);border-left:5px solid var(--cream);color:var(--cream);}
+    .pink-card h4,.pink-card p,.pink-card .node-cite{color:var(--cream);}
+    /* References */
+    .refs{padding:1.2rem 0 1.5rem;color:var(--navy);}
+    .refs h3{font-family:'Archivo Black',sans-serif;font-size:0.875rem;font-weight:900;color:var(--navy);margin-bottom:0.75rem;text-transform:uppercase;letter-spacing:2px;}
+    .refs p{font-size:0.65rem;margin-bottom:4px;padding-left:16px;text-indent:-16px;opacity:.7;line-height:1.65;}
+    /* Footer */
+    .split{display:flex;align-items:center;justify-content:center;padding:0.75rem 1rem;background:var(--navy);color:var(--cream);font-family:'Special Elite',monospace;text-transform:uppercase;letter-spacing:0.12em;}
+    .back-link{text-align:center;margin:2rem 0;}
+    .back-link a{color:var(--red);font-family:'Special Elite',monospace;text-decoration:none;}
+    @media(max-width:700px){
+      .two-col,.node-grid,.bottom-bar{grid-template-columns:1fr;}
+      .bot-left{border-right:none;border-bottom:2px solid rgba(240,230,211,.15);}
+      .masthead{padding:2.3rem 1rem;}
+      .article{padding:0.8rem;}
+    }
+  </style>
+</head>
+<body>
+  <div class="grain"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" seed="2"/></filter><rect width="100%" height="100%" filter="url(#noise)"/></svg></div>
+  <header class="nav"><a class="back" href="../index.html">← TODAS LAS INVESTIGACIONES</a></header>
+  <section class="masthead"><div class="logo">LA <span style="color:var(--navy)">H</span>IELERA</div><div class="tagline">Periodismo de Investigación</div></section>
+
+  <div class="ticker">Marlett Pasos necesita a Ortega Murillo para operar. Ortega Murillo necesita a Marlett Pasos para legitimar al régimen.</div>
+
+  <article class="article">
+
+    <!-- Portada -->
+    <div class="main-headline">
+      <h1>Ortega Murillo, Marlett Pasos y Chamorro Rubiales: la tríada que controla la inversión extranjera en Nicaragua</h1>
+    </div>
+
+    <div class="two-col">
+      <div class="col-text"><span class="dropcap">L</span>aureano Ortega Murillo, sancionado por la OFAC en 2019, supervisaba PRONicaragua como extensión directa de sus padres. Javier Chamorro Rubiales dirigió esa agencia durante diez años. Al salir, se incorporó a las empresas de Christopher Marlett Pasos, el mayor inversor extranjero en Nicaragua y principal respaldo del diálogo con Daniel Ortega. Una puerta giratoria que conecta el aparato estatal con el capital privado.</div>
+      <div class="col-highlight">Marlett Pasos compró la antigua embajada de EE.UU. en Managua y la transformó en el mayor centro de llamadas centroamericano, que lleva por nombre SITEL. Chamorro Rubiales ahora trabaja para él en MDB Capital, del cual Marlett Pasos es CEO y cofundador.</div>
+    </div>
+
+    <hr class="rule-red">
+
+    <div class="secondary">
+      <div class="sec-text">
+        <h2>Alain Orsoni, asesinado en Córcega: la deuda de un casino nicaragüense que desató una guerra desde 2005</h2>
+        <p>Alain Orsoni, el «Padrino Corso», fue abatido por un francotirador el 12 de enero de 2026 en el funeral de su madre. Tres décadas antes, una deuda de 500.000 francos de su casino en Nicaragua encendió una guerra de clanes con los Castola que comenzó en 2005 y se prolongó hasta 2009.</p>
+      </div>
+    </div>
+
+    <hr class="rule-red">
+
+    <div class="bottom-bar">
+      <div class="bot-left">
+        <h3>Gueorgui Lozev y Chamorro Rubiales: del club de motos al crimen organizado</h3>
+        <div class="tag">Los Pistones · MC 1% · Hells Angels</div>
+      </div>
+      <div class="bot-right">
+        <div class="quote">«El gibier no acostumbra a proveer de balas al cazador»</div>
+        <div class="author">— Nota de Alain Orsoni a los Castola</div>
+      </div>
+    </div>
+
+    <div class="page-break"></div>
+
+    <!-- Sección 1 -->
+    <div class="section-header">Sección 1 · La tríada: Ortega Murillo, Marlett Pasos y Chamorro Rubiales</div>
+    <div class="section-inner">
+      <h2>La cadena de mando que controla la inversión en Nicaragua</h2>
+      <span class="subtitle">De la agencia estatal al capital privado: una puerta giratoria</span>
+      <p>Laureano Ortega Murillo supervisaba directamente PRONicaragua como extensión de sus padres. Tenía el control efectivo sobre qué inversiones entraban al país y quién obtenía acceso al mercado nicaragüense. La agencia fue disuelta en octubre de 2022 y reemplazada por la Secretaría de Inversión y Exportación, la cual funciona bajo su poder.</p>
+      <p class="cite">CONNECTAS (2025, 16 jun.); Confidencial (s.f.); La Prensa Nicaragua (2018, 8 ene.); U.S. Department of the Treasury, OFAC (2019, 17 abr.)</p>
+
+      <div class="highlight-box"><strong>El modelo de control.</strong> Ortega Murillo no solo supervisaba la agencia: determinaba qué proyectos avanzaban y cuáles no. Los inversores que deseaban operar en Nicaragua debían pasar por su filtro. El Tesoro de EE.UU. lo describió como una extensión directa del presidente y la vicepresidenta. Fue sancionado por la OFAC en abril de 2019 por participar en tratos corruptos en los que inversores extranjeros pagaban por acceso preferencial. También es responsable de operar BanCorp, entidad utilizada para financiar las actividades represivas del régimen.</div>
+
+      <div class="node-card purple-card" style="margin:1.1rem 0">
+        <h4>Javier Chamorro Rubiales</h4>
+        <p>Fue director ejecutivo de PRONicaragua entre 2007 y 2017, cargo en el que fue pieza clave del modelo de «diálogo y consenso» del régimen Ortega con el sector privado. Anteriormente se desempeñó como director comercial de Grupo OCAL S.A. En 2017 fundó MECA Investments, una firma de asesoría estratégica. Desde 2022 trabaja como asociado en PatentVest, filial de MDB Capital Holdings. Ambas empresas son propiedad de Marlett Pasos. Es miembro del club de motos Los Pistones, junto con Gueorgui Lozev.</p>
+        <span class="node-cite">MECA Investments (s.f.); Nearshore Americas (2010, 6 jul.; 2020, 5 feb.); PRONicaragua.gob.ni (s.f.)</span>
+      </div>
+
+      <div class="purple-box"><strong>La bisagra.</strong> Chamorro Rubiales dirigió PRONicaragua durante diez años bajo la supervisión directa de Ortega Murillo. Juntos promovieron la imagen de Nicaragua como destino de inversión, atrayendo capital extranjero que legitimaba al régimen ante organismos internacionales. Su rol político no terminó al salir de PRONicaragua: su red de contactos gubernamentales es precisamente lo que lo hace valioso para MDB Capital.</div>
+
+      <div class="node-card teal-card" style="margin:1.1rem 0">
+        <h4>Christopher Marlett Pasos</h4>
+        <p>CEO y cofundador de MDB Capital Holdings desde 1997. También es propietario de PatentVest, plataforma de investigación de propiedad intelectual con operaciones en Managua. Es hijo de madre nicaragüense y regresó a Nicaragua en 2004. Compró la antigua embajada de Estados Unidos en Managua y la transformó en el mayor centro de llamadas centroamericano, que lleva por nombre SITEL. Es considerado el principal respaldo del diálogo empresarial con Daniel Ortega. Su relación con el régimen no es solo comercial: Marlett Pasos ha sido el inversor más visible en respaldar públicamente el modelo económico del gobierno. Fundó NICA, una ONG de desarrollo comunitario en El Tránsito, Nicaragua.</p>
+        <span class="node-cite">MDB Capital (s.f.); NICA Fund (s.f.); Nearshore Americas (2010); El 19 Digital (2013)</span>
+      </div>
+
+      <div class="teal-box"><strong>La simbiosis.</strong> Marlett Pasos necesita a Ortega Murillo para poder operar en Nicaragua. Ortega Murillo necesita a Marlett Pasos para atraer capital extranjero que legitime al régimen ante el mundo. Chamorro Rubiales funciona como la bisagra entre ambos: conoce el aparato estatal desde dentro y ahora trabaja para las empresas de Marlett Pasos.</div>
+    </div>
+
+    <div class="page-break"></div>
+
+    <!-- Sección 2 -->
+    <div class="section-header">Sección 2 · Del casino de los años 90 a la cámara del juego</div>
+    <div class="section-inner">
+      <h2>Cómo creció la industria del juego en Nicaragua</h2>
+      <span class="subtitle">Alain Orsoni plantó la semilla. Pefaco la cultivó. Lozev la opera hoy.</span>
+
+      <div class="node-card coral-card" style="margin:0 0 1.1rem">
+        <h4>Casino de Alain Orsoni (años 90)</h4>
+        <p>Negocio de máquinas tragamonedas establecido en Nicaragua. Los socios fueron Alain Orsoni, Francis Perez y Francis Castola (padre). Castola (hijo) gestionó el establecimiento en algún momento. Orsoni fue expulsado del país en el año 2000 por presunta extorsión. Los Castola tenían participación financiera y operativa, pero Orsoni mantenía el control del negocio.</p>
+        <span class="node-cite">Europe 1 (2025, 16 feb.); Roulot, O.-J. (2015). Medium; The Underground News (2026, feb.)</span>
+      </div>
+
+      <p>Tras la expulsión de Alain Orsoni, la industria del juego en Nicaragua no se detuvo. Grupo Pefaco, el holding fundado por Francis Perez en Barcelona, expandió sus operaciones a través de su filial Lydia Ludic Nicaragua S.A. La Cámara de Empresarios de la Industria del Juego y Apuestas Autorizadas (CEIJA) se constituyó para agrupar al sector formal.</p>
+      <p class="cite">Casino Review (2017, 19 jun.); G3 Newswire (s.f.)</p>
+
+      <div class="node-card amber-card" style="margin:1.1rem 0">
+        <h4>CEIJA</h4>
+        <p>Cámara de Empresarios de la Industria del Juego y Apuestas Autorizadas de Nicaragua. Agrupa a 11 empresas con 3.000 máquinas y genera 700 empleos directos.</p>
+        <span class="node-cite">AZARplus (2015, 3 ago.)</span>
+      </div>
+
+      <div class="node-card pink-card" style="margin:1.1rem 0">
+        <h4>Gueorgui Lozev</h4>
+        <p>De origen búlgaro. Exlegionario de la Legión Extranjera Francesa desde 1996. Es el secretario de CEIJA y opera 60 salas de juego en Nicaragua. Trabaja para Lydia Ludic Nicaragua S.A., filial de Grupo Pefaco.</p>
+        <span class="node-cite">AZARplus (2015, 3 ago.); Casino Review (2017, 19 jun.); RocketReach (s.f.)</span>
+      </div>
+
+      <div class="pink-box"><strong>El nexo motorizado.</strong> Gueorgui Lozev y Chamorro Rubiales son ambos miembros del club de motos Los Pistones. Gueorgui Lozev está además vinculado al MC 1%, que funciona como escolta oficial de los Hells Angels en Nicaragua. Este nexo conecta el sector empresarial del juego con el crimen organizado motorizado.</div>
+
+      <div class="node-grid">
+        <div class="node-card red-card">
+          <h4>Los Pistones MC</h4>
+          <p>Club de motos en Nicaragua. Miembros: Gueorgui Lozev (sector juego) y Chamorro Rubiales (sector inversión/político). Gueorgui Lozev tiene vínculo adicional con el MC 1%.</p>
+        </div>
+        <div class="node-card red-card">
+          <h4>Hells Angels en Nicaragua</h4>
+          <p>Franquicia internacional de crimen organizado motorizado. Los Pistones y el MC 1% operan como su brazo local de seguridad y escolta.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="page-break"></div>
+
+    <!-- Sección 3 -->
+    <div class="section-header">Sección 3 · El holding que conecta Córcega con Managua</div>
+    <div class="section-inner">
+      <h2>Grupo Pefaco: de Barcelona a 13 países</h2>
+      <span class="subtitle">Francis Perez, el socio de Alain Orsoni, fundó un imperio del juego desde Cataluña</span>
+
+      <p>Francis Perez —el mismo socio que ayudó a Alain Orsoni a abrir el casino en Nicaragua— fundó Grupo Pefaco S.L. en Barcelona en 1995. El holding se especializa en juego, ocio y hotelería, cuenta con un capital de 52 millones de euros, más de 3.000 empleados y presencia en 13 países de África, Sudamérica y Europa.</p>
+      <p class="cite">Crunchbase (s.f.); ZoomInfo (s.f.); Global Leisure Partners (s.f.)</p>
+
+      <div class="teal-box"><strong>La conexión directa.</strong> Alain Orsoni trabajó para Pefaco. France 3 Corse confirmó que Arnau Baqué Roig, abogado de Pefaco, era el comprador designado del AC Ajaccio «para la cual Alain Orsoni había trabajado anteriormente». Francis Perez es además el accionista mayoritario del holding que posee el club de fútbol.</div>
+
+      <div class="node-grid">
+        <div class="node-card teal-card">
+          <h4>Francis Perez</h4>
+          <p>Fundador y presidente de Grupo Pefaco. Fue socio de Alain Orsoni en el casino de Nicaragua. Es el accionista mayoritario del holding propietario del AC Ajaccio.</p>
+          <span class="node-cite">France Bleu (2025, 23 jul.); France 3 Corse (2025, 11 mayo)</span>
+        </div>
+        <div class="node-card pink-card">
+          <h4>Arnau Baqué Roig</h4>
+          <p>Director del departamento jurídico de Pefaco. Presidente de Seccions Deportives del Espanyol de Barcelona. Intentó comprar el AC Ajaccio a Alain Orsoni, pero se retiró en julio de 2025.</p>
+          <span class="node-cite">France 3 Corse (2025); France Bleu (2025); The Org (s.f.)</span>
+        </div>
+      </div>
+
+      <div class="node-card amber-card" style="margin:1.1rem 0">
+        <h4>Lydia Ludic Nicaragua S.A.</h4>
+        <p>Filial de Grupo Pefaco dedicada a la industria del juego en Nicaragua. Cuenta con 20 años de experiencia y conecta las operaciones de Barcelona con Managua. Es la empresa para la que trabaja Lozev.</p>
+        <span class="node-cite">Casino Review (2017, 19 jun.); G3 Newswire (s.f.)</span>
+      </div>
+
+      <div class="amber-box"><strong>El circuito.</strong> El dinero del juego en Nicaragua fluye hacia Pefaco en Barcelona. Los lazos personales entre Alain Orsoni, Francis Perez y los Castola cruzan las tres geografías. Y las disputas financieras nacidas en Managua se resolvieron a balazos en Córcega.</div>
+    </div>
+
+    <div class="page-break"></div>
+
+    <!-- Sección 4 -->
+    <div class="section-header">Sección 4 · La guerra de los clanes corsos</div>
+    <div class="section-inner">
+      <h2>La deuda que encendió dos décadas de sangre</h2>
+      <span class="subtitle">Alain Orsoni contra los Castola: del MPA al Petit Bar</span>
+
+      <p>Alain Orsoni y Francis Castola (padre) eran compañeros en el Movimiento para la Autodeterminación (MPA), el brazo político del FLNC-Canal Habituel.</p>
+      <p>Cuando Alain Orsoni huyó a Nicaragua en 1996, Francis Castola (padre) invirtió 500.000 francos en las dos sociedades que operaba allí. Castola (hijo) llegó a gestionar el establecimiento. Pero cuando Alain Orsoni fue expulsado en el año 2000, se negó a devolver el dinero. Castola (padre), ya vinculado a la banda del Petit Bar, fue asesinado en 2005 frente a su domicilio.</p>
+      <p class="cite">Europe 1 (2025, 16 feb.); Roulot, O.-J. (2015). Medium; The Underground News (2026, feb.)</p>
+
+      <div class="highlight-box"><strong>La ruptura.</strong> Alain Orsoni rechazó devolver la inversión. Los hijos de Francis Castola reclamaron. Alain Orsoni se negó. Lo que siguió fue una guerra de clanes que estalló en 2005 y se prolongó hasta 2009, con múltiples asesinatos en Córcega.</div>
+
+      <div class="node-grid">
+        <div class="node-card coral-card">
+          <h4>Guy Orsoni (hijo de Alain)</h4>
+          <p>Identificado como líder de la red criminal destinada a eliminar al clan Castola. Fue condenado a 13 años de prisión en mayo de 2025.</p>
+          <span class="node-cite">Euronews (2026, 13 ene.)</span>
+        </div>
+        <div class="node-card purple-card">
+          <h4>Francis Castola (hijo)</h4>
+          <p>Gestionó el casino de Alain Orsoni en Nicaragua. Reclamó la deuda de su padre tras su muerte. Cercano al Petit Bar. Sobrevivió a múltiples atentados en 2009.</p>
+          <span class="node-cite">Europe 1 (2025, 16 feb.); Roulot (2015)</span>
+        </div>
+      </div>
+
+      <div class="node-card red-card" style="margin:1.1rem 0">
+        <h4>Petit Bar (mafia corsa)</h4>
+        <p>Banda de crimen organizado liderada por Ange-Marie Michelosi y Jacques Santoni. Intentó asesinar a Alain Orsoni en agosto de 2008. Los Castola mantenían vínculos con esta organización.</p>
+        <span class="node-cite">Europe 1 (2025, 16 feb.); Worldcrunch (2025, 23 mayo)</span>
+      </div>
+
+      <p>El 12 de enero de 2026, Alain Orsoni regresó a Córcega para el funeral de su madre. Un francotirador lo abatió de un solo disparo frente a medio centenar de familiares y amigos. La investigación fue asumida por la Fiscalía Nacional contra la Delincuencia Organizada de Francia, que clasificó el caso bajo el protocolo de crimen organizado.</p>
+      <p class="cite">Euronews (2026, 13 ene.); Infobae (2026, 12 ene.); LatinUS (2026, 12 ene.)</p>
+    </div>
+
+    <div class="page-break"></div>
+
+    <!-- Sección 5 -->
+    <div class="section-header">Sección 5 · El círculo completo</div>
+    <div class="section-inner">
+      <h2>Cómo el casino corso llegó a Nicaragua a través de Barcelona</h2>
+      <span class="subtitle">Tres décadas, tres ciudades, un mismo negocio</span>
+
+      <p>En los años 90, Alain Orsoni y Francis Perez abrieron un casino de máquinas tragamonedas en Nicaragua. En 1995, Francis Perez fundó Grupo Pefaco en Barcelona como holding de juego y hotelería. Cuando Alain Orsoni fue expulsado de Nicaragua en el año 2000, se instaló en Barcelona —exactamente donde Francis Perez ya tenía la sede de Pefaco— y trabajó para el grupo.</p>
+      <p>Pefaco expandió sus operaciones de juego a Nicaragua a través de su filial Lydia Ludic. Gueorgui Lozev, empleado de esa filial, opera hoy 60 salas de juego como secretario de CEIJA. Arnau Baqué Roig, abogado de Pefaco, intentó comprar el AC Ajaccio de Alain Orsoni. Y Francis Perez es el accionista mayoritario del holding que posee el club.</p>
+      <p class="cite">France Bleu (2025, 23 jul.); Casino Review (2017, 19 jun.)</p>
+
+      <div class="highlight-box"><strong>La síntesis.</strong> Alain Orsoni nunca dejó de estar vinculado a Pefaco. Barcelona no fue un «exilio neutral»: fue el centro de operaciones del holding de juego que tiene tentáculos en Nicaragua y África. Mientras tanto, en Managua, la tríada Ortega Murillo–Chamorro Rubiales–Marlett Pasos controla quién invierte y quién no. Y Gueorgui Lozev, empleado de Pefaco y miembro de Los Pistones junto a Chamorro Rubiales, es el eslabón que conecta el mundo del juego con el crimen organizado motorizado.</div>
+
+      <p>Nicaragua no fue un paréntesis en la vida de Alain Orsoni. Fue el lugar donde se plantó la semilla del conflicto que lo persiguió durante tres décadas hasta su muerte. Y fue el terreno donde Francis Perez construyó, desde Barcelona, el negocio que hoy sigue operando a través de Gueorgui Lozev, bajo la sombra del régimen Ortega.</p>
+    </div>
+
+    <div class="page-break"></div>
+
+    <!-- Referencias -->
+    <div class="section-header">Referencias</div>
+    <div class="refs">
+      <h3>Fuentes consultadas</h3>
+      <p>AZARplus. (2015, 3 de agosto). <em>Nace en Nicaragua la Cámara de Empresarios de la Industria del Juego y Apuestas.</em> https://www.azarplus.com/</p>
+      <p>Casino Review. (2017, 19 de junio). <em>Nicaragua's operators strive to improve relations with the banking sector.</em> https://www.casino-review.co/</p>
+      <p>CONNECTAS. (2025, 16 de junio). <em>Minister of Foreign Affairs, the Latest Performance Act of Daniel Ortega's Tenor Son.</em> https://www.connectas.org/</p>
+      <p>Confidencial. (s.f.). <em>Presentan la Guía del Inversionista de Nicaragua.</em> https://confidencial.digital/</p>
+      <p>Crunchbase. (s.f.). <em>Francis Perez — Founder and President, Grupo Pefaco.</em> https://www.crunchbase.com/</p>
+      <p>El 19 Digital. (2013). <em>Nicaragua asciende en la tercerización de servicios.</em> https://www.el19digital.com/</p>
+      <p>Europe 1. (2025, 16 de febrero). <em>«Petit bar»: une vendetta corse aux assises.</em> https://www.europe1.fr/</p>
+      <p>Euronews. (2026, 13 de enero). <em>Former Corsican separatist leader Alain Orsoni shot dead at mother's funeral.</em> https://www.euronews.com/</p>
+      <p>France 3 Corse. (2025, 11 de mayo). <em>Football: l'AC Ajaccio connaît le nom de son futur repreneur.</em> https://france3-regions.franceinfo.fr/</p>
+      <p>France Bleu. (2025, 23 de julio). <em>AC Ajaccio: Arnau Baqué Roig, le prétendant à la reprise du club, se retire.</em> https://www.francebleu.fr/</p>
+      <p>G3 Newswire. (s.f.). <em>Nicaragua Archives.</em> https://g3newswire.com/tag/nicaragua/</p>
+      <p>Global Leisure Partners. (s.f.). <em>PEFACO receives substantial investment.</em> https://www.globalleisurepartners.com/</p>
+      <p>Infobae. (2026, 12 de enero). <em>Asesinado el histórico líder nacionalista corso Alain Orsoni.</em> https://www.infobae.com/</p>
+      <p>La Prensa Nicaragua. (2018, 8 de enero). <em>Nicaragua presenta guía para atraer inversionistas.</em> https://www.laprensa.com.ni/</p>
+      <p>LatinUS. (2026, 12 de enero). <em>Alain Orsoni, expresidente del Ajaccio, es asesinado en el funeral de su madre.</em> https://latinus.us/</p>
+      <p>MECA Investments. (s.f.). <em>Director's Profile.</em> https://mecainvestments.com/</p>
+      <p>MDB Capital. (s.f.). <em>Christopher Marlett — Leadership Team.</em> https://www.mdb.com/</p>
+      <p>Nearshore Americas. (2010, 6 de julio). <em>PRONicaragua Boss Doesn't Duck Questions on Ortega.</em> https://nearshoreamericas.com/</p>
+      <p>Nearshore Americas. (2020, 5 de febrero). <em>When Risk is the "Norm", What Can Investment Agencies Do?</em> https://nearshoreamericas.com/</p>
+      <p>NICA Fund. (s.f.). <em>Team.</em> https://nicafund.org/team/</p>
+      <p>OpenSanctions. (s.f.). <em>Laureano Ortega.</em> https://www.opensanctions.org/</p>
+      <p>PRONicaragua. (s.f.). <em>Noticias.</em> https://pronicaragua.gob.ni/</p>
+      <p>RocketReach. (s.f.). <em>Lozev George.</em> https://rocketreach.co/</p>
+      <p>Roulot, O.-J. (2015, 17 de mayo). <em>Alain Orsoni, son fils, sa bataille.</em> Medium. https://medium.com/@oroulot/</p>
+      <p>The Org. (s.f.). <em>Arnau Baqué Roig — Grupo Pefaco S.L.</em> https://theorg.com/</p>
+      <p>The Underground News. (2026, febrero). <em>Alain Orsoni: The Corsican Revolutionary.</em> https://theundergroundnews.substack.com/</p>
+      <p>U.S. Department of the Treasury. (2019, 17 de abril). <em>Treasury Targets Finances of Nicaraguan President Daniel Ortega's Regime.</em> https://2017-2021-translations.state.gov/</p>
+      <p>Worldcrunch. (2025, 23 de mayo). <em>Orsoni Affair: A Family Saga In The Corsican Underworld.</em> https://worldcrunch.com/</p>
+      <p>ZoomInfo. (s.f.). <em>Grupo Pefaco — Overview.</em> https://www.zoominfo.com/</p>
+    </div>
+
+  </article>
+  <section class="split">LA HIELERA · PERIODISMO DE INVESTIGACIÓN · 2026</section>
+</body>
+</html>

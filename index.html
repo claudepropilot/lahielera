@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LA HIELERA · Investigaciones</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Dela+Gothic+One&family=Libre+Baskerville:ital@0;1&family=Special+Elite&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #1a2354;
+      --red: #c0282d;
+      --cream: #f0e6d3;
+      --dark-cream: #e0d4be;
+    }
+    *{box-sizing:border-box;}
+    body{margin:0;font-family:'Libre Baskerville',serif;color:var(--navy);background:var(--cream);line-height:1.6;}
+    h1,h2,h3,h4,h5,h6{font-family:'Dela Gothic One',sans-serif;text-transform:uppercase;letter-spacing:0.08em;margin:0;}
+    .logo-primary{font-family:'Dela Gothic One',sans-serif;font-size:clamp(32px,6vw,72px);line-height:1;display:inline;text-shadow:6px 6px 0 rgba(0,0,0,.35);}
+    .logo-small{font-family:'Archivo Black',sans-serif;letter-spacing:0.06em;font-size:20px;}
+    .logo-small span{color:var(--red);}
+    .brand-large{margin-bottom:0.2rem;}
+    .tagline{font-family:'Special Elite',monospace;font-size:1rem;letter-spacing:0.14em;}
+    .grain{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;mix-blend-mode:overlay;opacity:.08;z-index:9999;}
+    .clip-header{background:var(--red);color:var(--cream);clip-path:polygon(0 0,100% 0,100% 78%,0 100%);padding:5rem 1.5rem 4rem;display:flex;align-items:center;justify-content:center;text-align:center;}
+    .clip-header .inner{max-width:1100px;width:100%;}
+    .topbar{position:sticky;top:0;z-index:1000;background:var(--navy);border-bottom:3px solid var(--red);padding:0.55rem 1rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;}
+    .topbar a{color:var(--cream);text-decoration:none; font-family:'Archivo Black',sans-serif;font-size:0.9rem;}
+    .topbar nav{display:flex;justify-content:flex-end;gap:1rem;}
+    .topbar .active{color:var(--red);}
+    .container{max-width:1100px;margin:2rem auto 4rem;padding:0 1rem;}
+    .section-title{color:var(--red);font-size:2rem;margin-bottom:1rem;padding-left:0.15rem;letter-spacing:0.15em;}
+    .cards{display:flex;flex-direction:column;gap:1rem;}
+    .card{display:grid;grid-template-columns:110px 1fr;gap:1rem;padding:1rem;border:1px solid var(--dark-cream);border-left:3px solid var(--red);background:#fff;transition:background 0.2s ease, transform 0.2s ease;text-decoration:none;color:inherit;}
+    .card:hover{background:rgba(192,40,45,0.08);transform:translateY(-2px);}
+    .date-block{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;font-family:'Archivo Black',sans-serif;}
+    .date-day{font-size:2rem;line-height:1;}
+    .date-month{font-size:0.78rem;color:var(--red);text-transform:uppercase;letter-spacing:0.1em;}
+    .card-content h3{margin:0;font-family:'Dela Gothic One',sans-serif;font-size:1.2rem;line-height:1.2;}
+    .card:hover h3{color:var(--red);}
+    .card-content p{opacity:.55;margin:.5rem 0;}
+    .tags{display:flex;flex-wrap:wrap;gap:0.4rem;}
+    .tag{border:1px solid var(--red);color:var(--navy);font-size:0.75rem;padding:0.15rem 0.45rem;border-radius:2px;font-family:'Libre Baskerville',serif;text-transform:uppercase;}
+    .footer{border-top:1px solid var(--red);padding:1rem;text-align:center;font-size:0.85rem;color:rgba(26,35,84,0.7);font-family:'Special Elite',monospace;}
+    .split{display:flex;align-items:center;justify-content:center;padding:0.75rem 1rem;background:var(--navy);color:var(--cream);font-family:'Special Elite',monospace;text-transform:uppercase;letter-spacing:0.12em;}
+    @media(max-width:700px){
+      .topbar{padding:0.5rem;}
+      .topbar nav{display:none;}
+      .container{margin:1.5rem auto;}
+      .cards .card{grid-template-columns:1fr;}
+      .date-block{flex-direction:row;gap:0.6rem;align-items:center;}
+      .date-day{font-size:1.4rem;}
+      .clip-header{padding:3.5rem 1rem 3rem;}
+    }
+  </style>
+</head>
+<body>
+  <div class="grain"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" seed="2"/></filter><rect width="100%" height="100%" filter="url(#noise)"/></svg></div>
+  <header class="clip-header"><div class="inner"><div class="brand-large"><span class="logo-primary">LA </span><span class="logo-primary" style="color:var(--cream)"><span style="color:var(--navy)">H</span>IELERA</span></div><div class="tagline">PERIODISMO DE INVESTIGACIÓN</div></div></header>
+  <div class="topbar"><nav style="margin-left:auto;"><a href="#">ACERCA DE</a><a href="#" class="active">INVESTIGACIONES</a></nav></div>
+  <main class="container">
+    <h2 class="section-title">INVESTIGACIONES</h2>
+    <div class="cards" id="lista"></div>
+  </main>
+  <section class="split">LA HIELERA · PERIODISMO DE INVESTIGACIÓN · 2026</section>
+  <script src="articulos.js"></script>
+  <script>
+    const lista = document.getElementById('lista');
+    function formatDate(date){
+      const d=new Date(date);
+      return {day: String(d.getDate()).padStart(2,'0'), month: d.toLocaleString('es-ES',{month:'short'}).toUpperCase(), year: d.getFullYear()};
+    }
+    const sorted = ARTICULOS.slice().sort((a,b)=>new Date(b.fecha)-new Date(a.fecha));
+    sorted.forEach(a=>{
+      const {day,month,year}=formatDate(a.fecha);
+      const card=document.createElement('a');
+      card.className='card';
+      card.href=`articulos/${a.archivo}.html`;
+      card.innerHTML=`<div class="date-block"><div class="date-day">${day}</div><div class="date-month">${month} ${year}</div></div><div class="card-content"><h3>${a.titulo}</h3><p>${a.bajada}</p><div class="tags">${a.etiquetas.map(t=>`<span class="tag">${t}</span>`).join('')}</div></div>`;
+      lista.appendChild(card);
+    });
+  </script>
+</body>
+</html>

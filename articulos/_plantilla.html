@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>[TÍTULO] · La Hielera</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Dela+Gothic+One&family=Libre+Baskerville:ital@0;1&family=Special+Elite&display=swap" rel="stylesheet">
+  <style>
+    :root{--navy:#1a2354;--red:#c0282d;--cream:#f0e6d3;--dark-cream:#e0d4be;}
+    *{box-sizing:border-box;}
+    body{margin:0;color:var(--navy);background:var(--cream);font-family:'Libre Baskerville',serif;}
+    .grain{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;mix-blend-mode:overlay;opacity:.08;z-index:9999;}
+    h1,h2,h3,h4{font-family:'Dela Gothic One',sans-serif;text-transform:uppercase;letter-spacing:0.08em;margin:0;}
+    .nav{position:sticky;top:0;background:var(--navy);border-bottom:3px solid var(--red);padding:0.7rem 1rem;display:flex;justify-content:space-between;align-items:center;z-index:50;}
+    .nav a{color:var(--cream);text-decoration:none;font-family:'Archivo Black',sans-serif;font-size:0.95rem;}
+    .nav .back{color:var(--cream);font-family:'Special Elite',monospace;}
+    .masthead{background:var(--red);clip-path:polygon(0 0,100% 0,100% 78%,0 100%);text-align:center;color:var(--cream);padding:3.5rem 1rem;}
+    .masthead h1{font-size:clamp(1.8rem,6vw,3.3rem);}
+    .ticker{background:var(--navy);color:var(--cream);text-align:center;padding:0.9rem 1rem;font-family:'Special Elite',monospace;text-transform:uppercase;letter-spacing:0.12em;}
+    .main-title{background:var(--cream);padding:2rem 1rem;text-align:center;border-bottom:2px solid rgba(26,35,84,0.2);}
+    .article{max-width:900px;margin:0 auto;padding:1rem;}
+    .intro{display:grid;grid-template-columns:2fr 1fr;gap:1rem;margin:1rem 0;}
+    .intro p{font-size:1rem;line-height:1.6;text-align:justify;}
+    .dropcap{float:left;font-family:'Dela Gothic One',sans-serif;color:var(--red);font-size:64px;line-height:0.78;margin-right:0.25rem;margin-top:0.1rem;}
+    .highlight-box{background:var(--navy);color:var(--cream);border-left:4px solid var(--red);padding:1rem;font-family:'Special Elite',monospace;}
+    .section{margin:2rem 0;}
+    .section-header{background:var(--red);color:var(--cream);padding:0.6rem 0.9rem;font-family:'Archivo Black',sans-serif;margin-bottom:0.8rem;}
+    .section-body{background:var(--cream);padding:1rem;border-left:4px solid var(--red);text-align:justify;}
+    .cite{font-family:'Special Elite',monospace;opacity:.45;font-size:.85rem;}
+    .node-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin:1rem 0;}
+    .node-card{padding:0.8rem;border:2px solid var(--red);background:var(--cream);}
+    .node-card.navy{background:var(--navy);color:var(--cream);border-color:var(--red);}
+    .node-card.red{background:var(--red);color:var(--cream);border-color:var(--navy);}
+    .node-card.dark{background:var(--dark-cream);border-color:var(--red);}
+    .sep{height:24px;background:var(--navy);margin:2rem 0;}
+    .references{margin:1rem 0;padding:0 0.5rem;}
+    .foot{border-top:2px solid var(--navy);padding:1rem;text-align:center;font-family:'Special Elite',monospace;opacity:.5;}
+    @media(max-width:700px){.intro{grid-template-columns:1fr;}.node-grid{grid-template-columns:1fr;}.masthead{padding:2.5rem 0.7rem;}.nav{padding:0.6rem 0.8rem;}.main-title,.article{padding:0.85rem;}}
+  </style>
+</head>
+<body>
+  <div class="grain"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" seed="2"/></filter><rect width="100%" height="100%" filter="url(#noise)"/></svg></div>
+  <header class="nav"><a href="../index.html" class="logo-small">LA HIELERA</a><a href="../index.html" class="back">← TODAS LAS INVESTIGACIONES</a></header>
+  <section class="masthead"><h1>LA HIELERA</h1></section>
+  <div class="ticker">[TU TICKER AQUÍ]</div>
+  <article class="article">
+    <section class="main-title"><h2>[TÍTULO COMPLETO]</h2></section>
+    <div class="intro"><div><p><span class="dropcap">E</span>n un país donde el poder y las fichas se mezclan, este reportaje construye un mapa de la influencia que emana del casino hasta las cúpulas financieras.</p></div><aside class="highlight-box">Cita clave de la investigación en contexto. Este bloque sirve para reforzar el anuncio del artículo.</aside></div>
+    <div class="section"><div class="section-header">SECCIÓN EJEMPLO</div><div class="section-body"><p>Texto corporal en Libre Baskerville. Asegúrate de escribir con precisión. <span class="cite">(Fuente, 2026)</span></p></div></div>
+    <div class="sep"></div>
+    <div class="section references"><h3 class="section-header">REFERENCIAS</h3><h4>Fuentes consultadas</h4><p class="cite">Apellido, N. (2026). Título en cursiva. Editorial.</p></div>
+    <div class="foot">La Hielera · Investigación especial · Marzo 2026</div>
+  </article>
+  <div style="text-align:center;margin:2rem 0;"><a href="../index.html" style="color:var(--red);font-family:'Special Elite',monospace;text-decoration:none;">← Volver a todas las investigaciones</a></div>
+</body>
+</html>
