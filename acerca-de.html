@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Acerca de · LA HIELERA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Dela+Gothic+One&family=Libre+Baskerville:ital@0;1&family=Special+Elite&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #1a2354;
+      --red: #c0282d;
+      --cream: #f0e6d3;
+      --dark-cream: #e0d4be;
+    }
+    *{box-sizing:border-box;}
+    body{margin:0;font-family:'Libre Baskerville',serif;color:var(--navy);background:var(--cream);line-height:1.6;}
+    h1,h2,h3,h4,h5,h6{font-family:'Dela Gothic One',sans-serif;text-transform:uppercase;letter-spacing:0.08em;margin:0;}
+    .logo-primary{font-family:'Dela Gothic One',sans-serif;font-size:clamp(32px,6vw,72px);line-height:1;display:inline;text-shadow:6px 6px 0 rgba(0,0,0,.35);}
+    .logo-small{font-family:'Archivo Black',sans-serif;letter-spacing:0.06em;font-size:20px;}
+    .logo-small span{color:var(--red);}
+    .brand-large{margin-bottom:0.2rem;}
+    .tagline{font-family:'Special Elite',monospace;font-size:1rem;letter-spacing:0.14em;}
+    .grain{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;mix-blend-mode:overlay;opacity:.08;z-index:9999;}
+    .clip-header{background:var(--red);color:var(--cream);clip-path:polygon(0 0,100% 0,100% 78%,0 100%);padding:5rem 1.5rem 4rem;display:flex;align-items:center;justify-content:center;text-align:center;}
+    .clip-header .inner{max-width:1100px;width:100%;}
+    .topbar{position:sticky;top:0;z-index:1000;background:var(--navy);border-bottom:3px solid var(--red);padding:0.55rem 1rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;}
+    .topbar a{color:var(--cream);text-decoration:none; font-family:'Archivo Black',sans-serif;font-size:0.9rem;}
+    .topbar nav{display:flex;justify-content:flex-end;gap:1rem;}
+    .topbar .active{color:var(--red);}
+    .container{max-width:1100px;margin:2rem auto 4rem;padding:0 1rem;}
+    .section-title{color:var(--red);font-size:2rem;margin-bottom:1rem;padding-left:0.15rem;letter-spacing:0.15em;}
+    .content{background:#fff;padding:2rem;border:1px solid var(--dark-cream);border-left:3px solid var(--red);}
+    .content h2{color:var(--red);font-size:1.5rem;margin-top:1.5rem;margin-bottom:0.8rem;}
+    .content h2:first-child{margin-top:0;}
+    .content p{margin:0.8rem 0;line-height:1.8;}
+    .content ul{margin:1rem 0;padding-left:2rem;}
+    .content li{margin:0.5rem 0;}
+    .footer{border-top:1px solid var(--red);padding:1rem;text-align:center;font-size:0.85rem;color:rgba(26,35,84,0.7);font-family:'Special Elite',monospace;}
+    .split{display:flex;align-items:center;justify-content:center;padding:0.75rem 1rem;background:var(--navy);color:var(--cream);font-family:'Special Elite',monospace;text-transform:uppercase;letter-spacing:0.12em;}
+    @media(max-width:700px){
+      .topbar{padding:0.5rem;}
+      .topbar nav{display:none;}
+      .container{margin:1.5rem auto;}
+      .clip-header{padding:3.5rem 1rem 3rem;}
+      .content{padding:1.5rem;}
+    }
+  </style>
+</head>
+<body>
+  <div class="grain"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" seed="2"/></filter><rect width="100%" height="100%" filter="url(#noise)"/></svg></div>
+  <header class="clip-header"><div class="inner"><div class="brand-large"><span class="logo-primary">LA </span><span class="logo-primary" style="color:var(--cream)"><span style="color:var(--navy)">H</span>IELERA</span></div><div class="tagline">PERIODISMO DE INVESTIGACIÓN</div></div></header>
+  <div class="topbar"><nav style="margin-left:auto;"><a href="acerca-de.html" class="active">ACERCA DE</a><a href="index.html">INVESTIGACIONES</a></nav></div>
+  <main class="container">
+    <h2 class="section-title">ACERCA DE NOSOTROS</h2>
+    <div class="content">
+      <h2>Quiénes somos</h2>
+      <p>LA HIELERA es un colectivo de periodistas independientes dedicados a la investigación y exposición de temas de interés público. Somos un grupo anónimo comprometido con la verdad y la transparencia.</p>
+
+      <h2>Nuestra misión</h2>
+      <p>Creemos que la democracia se fortalece a través de la información libre y veraz. Nuestro compromiso es investigar y reportar historias que importan, sin temor a represalias y sin ser influenciados por intereses políticos o económicos.</p>
+      <p>Trabajamos bajo el principio de que la libertad de prensa es fundamental para una sociedad democrática y que los ciudadanos tienen derecho a acceder a información que afecta sus vidas.</p>
+
+      <h2>Nuestros valores</h2>
+      <ul>
+        <li><strong>Democracia:</strong> Defendemos y promovemos los principios democráticos en todas nuestras investigaciones.</li>
+        <li><strong>Libertad de expresión:</strong> Consideramos la libertad de prensa como un pilar esencial de toda sociedad libre.</li>
+        <li><strong>Independencia editorial:</strong> Operamos sin presiones externas, políticas o comerciales.</li>
+        <li><strong>Rigor investigativo:</strong> Verificamos nuestras fuentes y aseguramos la exactitud de nuestros reportes.</li>
+        <li><strong>Protección de fuentes:</strong> Nos comprometemos a proteger la identidad y seguridad de nuestras fuentes.</li>
+        <li><strong>Responsabilidad social:</strong> Creemos en el poder del periodismo para generar cambio social positivo.</li>
+      </ul>
+
+      <h2>Nuestro trabajo</h2>
+      <p>Realizamos investigaciones profundas sobre temas de corrupción, abuso de poder, violación de derechos humanos y otros asuntos que afectan el bien público. Nuestro trabajo busca exponer la verdad y contribuir a una mayor transparencia y rendición de cuentas.</p>
+
+      <h2>¿Por qué el anonimato?</h2>
+      <p>Operamos de forma anónima para proteger nuestra seguridad y la de nuestras fuentes. En contextos donde la represión contra periodistas es una realidad, el anonimato nos permite continuar nuestro trabajo sin interferencias. Creemos que lo importante es la información que compartimos, no quiénes somos nosotros.</p>
+    </div>
+  </main>
+  <section class="split">LA HIELERA · PERIODISMO DE INVESTIGACIÓN · 2026</section>
+</body>
+</html>
